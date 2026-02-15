@@ -15,13 +15,6 @@ jobs:
             artifactName: iOSBuild
             artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
             system: iOS
-          - name: iOS-Sim
-            os: macos-14
-            buildArgs: "ios -simulator -nosign"
-            setupCommand: sh ./setup/unix.sh
-            artifactName: iOSSimBuild
-            artifactPath: "export/release/ios/build/Release-iphonesimulator/*.ipa"
-            system: iOS-Sim
     uses: ./.github/workflows/build.yml
     with:
         name: ${{ matrix.name }}
