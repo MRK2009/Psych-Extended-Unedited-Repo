@@ -9,28 +9,12 @@ jobs:
       matrix:
         include:
           - name: Windows
-            os: windows-2022
+            os: windows-2025
             buildArgs: "windows -D officialBuild -final"
             setupCommand: .\"setup/windows.bat"
             artifactName: windowsBuild-x86_64
             artifactPath: export\release\windows\bin\*
             system: Windows
-
-          - name: Android-Arm64
-            os: ubuntu-24.04
-            buildArgs: "android -D officialBuild -ONLY_ARM64 -final"
-            setupCommand: sh ./setup/unix.sh
-            artifactName: androidBuild-Arm64
-            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
-            system: Android
-
-          - name: Android-Armv7
-            os: ubuntu-24.04
-            buildArgs: "android -D officialBuild -ONLY_ARMV7 -final"
-            setupCommand: sh ./setup/unix.sh
-            artifactName: androidBuild-Armv7
-            artifactPath: "export/release/android/bin/app/build/outputs/apk/release/*.apk"
-            system: Android
 
           - name: Android
             os: ubuntu-24.04
@@ -41,7 +25,7 @@ jobs:
             system: Android
 
           - name: Windows-Debug
-            os: windows-2022
+            os: windows-2025
             buildArgs: "windows -D officialBuild -D debugBuild -D ENABLE_NOVA -final"
             setupCommand: .\"setup/windows.bat"
             artifactName: windowsDebugBuild-x86_64
