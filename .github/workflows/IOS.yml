@@ -8,8 +8,15 @@ jobs:
     strategy:
       matrix:
         include:
+          - name: iOS
+            os: macos-14
+            buildArgs: "ios -nosign"
+            setupCommand: sh ./setup/unix.sh
+            artifactName: iOSBuild
+            artifactPath: "export/release/ios/build/Release-iphoneos/*.ipa"
+            system: iOS
           - name: iOS-Sim
-            os: macos-13
+            os: macos-14
             buildArgs: "ios -simulator -nosign"
             setupCommand: sh ./setup/unix.sh
             artifactName: iOSSimBuild
